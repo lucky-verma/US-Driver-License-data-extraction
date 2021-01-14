@@ -1,10 +1,10 @@
-#### Basic training commands
+### Basic training commands
 
-##### train command with custom datasets and annotations 
+#### train command with custom datasets and annotations 
 `python flow --model cfg/tiny-yolo-4c.cfg  --train --dataset "C:\Users\lucki\WORK\OFFICE\VAST\DL-data-extraction\YOLO___TF1.0\licenses" --annotation "C:\Users\lucki\WORK\OFFICE\VAST\DL-data-extraction\YOLO___TF1.0\annotations"`
 
 
-##### print results from a `.cfg` and `.weights` model
+#### print results from a `.cfg` and `.weights` model
 `python flow --imgdir sample_img/ --model cfg/tiny-yolo-4c.cfg --load bin/yolov3-spp.weights --threshold 0.3 --json `
 
 
