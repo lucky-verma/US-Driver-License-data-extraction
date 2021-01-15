@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 options = {
     'pbLoad' : 'built_graph/tiny-yolo-4c.pb',
     'metaLoad' : 'built_graph/tiny-yolo-4c.meta',
-    'threshold' : 0.1
+    'threshold' : 0.11
 }
 
 tfnet = TFNet(options)
