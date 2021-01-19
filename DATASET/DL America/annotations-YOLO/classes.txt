@@ -1,5 +1,0 @@
-name
-license_number
-date_of_birth
-sex
-address
