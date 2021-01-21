@@ -1,0 +1,2 @@
+Distance = 20 inch
+Object = 6 inch
