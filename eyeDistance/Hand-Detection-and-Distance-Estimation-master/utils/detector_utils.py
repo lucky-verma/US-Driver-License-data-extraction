@@ -28,7 +28,6 @@ category_index = label_map_util.create_category_index(categories)
 
 # Load a frozen infrerence graph into memory
 def load_inference_graph():
-
     # load frozen tensorflow model into memory
     print("> ====== Loading frozen graph into memory")
     detection_graph = tf.Graph()
@@ -52,36 +51,38 @@ def draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, classes, im
     avg_width = 4.0
     # To more easily differetiate distances and detected bboxes
     color = None
-    color0 = (255,0,0)
-    color1 = (0,50,255)
+    color0 = (255, 0, 0)
+    color1 = (0, 50, 255)
     for i in range(num_hands_detect):
-        if (scores[i] > score_thresh):
+        if scores[i] > score_thresh:
             if classes[i] == 1: id = 'open'
             if classes[i] == 2:
-                id ='closed'
-                avg_width = 3.0 # To compensate bbox size change
+                id = 'closed'
+                avg_width = 3.0  # To compensate bbox size change
 
-            if i == 0: color = color0
-            else: color = color1
+            if i == 0:
+                color = color0
+            else:
+                color = color1
 
             (left, right, top, bottom) = (boxes[i][1] * im_width, boxes[i][3] * im_width,
                                           boxes[i][0] * im_height, boxes[i][2] * im_height)
             p1 = (int(left), int(top))
             p2 = (int(right), int(bottom))
 
-            dist = distance_to_camera(avg_width, focalLength, int(right-left))
+            dist = distance_to_camera(avg_width, focalLength, int(right - left))
 
-            cv2.rectangle(image_np, p1, p2, color , 3, 1)
+            cv2.rectangle(image_np, p1, p2, color, 3, 1)
 
-            cv2.putText(image_np, 'hand '+str(i)+': '+id, (int(left), int(top)-5),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5 , color, 2)
+            cv2.putText(image_np, 'hand ' + str(i) + ': ' + id, (int(left), int(top) - 5),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
 
-            cv2.putText(image_np, 'confidence: '+str("{0:.2f}".format(scores[i])),
-                        (int(left),int(top)-20),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0), 2)
+            cv2.putText(image_np, 'confidence: ' + str("{0:.2f}".format(scores[i])),
+                        (int(left), int(top) - 20),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
-            cv2.putText(image_np, 'distance: '+str("{0:.2f}".format(dist)+' inches'),
-                        (int(im_width*0.7),int(im_height*0.9+30*i)),
+            cv2.putText(image_np, 'distance: ' + str("{0:.2f}".format(dist) + ' inches'),
+                        (int(im_width * 0.7), int(im_height * 0.9 + 30 * i)),
                         cv2.FONT_HERSHEY_SIMPLEX, 0.75, color, 2)
 
 
@@ -89,9 +90,12 @@ def draw_box_on_image(num_hands_detect, score_thresh, scores, boxes, classes, im
 def draw_text_on_image(fps, image_np):
     cv2.putText(image_np, fps, (20, 50),
                 cv2.FONT_HERSHEY_SIMPLEX, 0.75, (77, 255, 9), 2)
+
+
 # compute and return the distance from the hand to the camera using triangle similarity
 def distance_to_camera(knownWidth, focalLength, pixelWidth):
     return (knownWidth * focalLength) / pixelWidth
+
 
 # Actual detection .. generate scores and bounding boxes given an image
 def detect_objects(image_np, detection_graph, sess):
@@ -113,6 +117,6 @@ def detect_objects(image_np, detection_graph, sess):
 
     (boxes, scores, classes, num) = sess.run(
         [detection_boxes, detection_scores,
-            detection_classes, num_detections],
+         detection_classes, num_detections],
         feed_dict={image_tensor: image_np_expanded})
     return np.squeeze(boxes), np.squeeze(scores), np.squeeze(classes)

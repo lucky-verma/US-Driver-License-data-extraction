@@ -39,7 +39,7 @@ KNOWN_WIDTH = 5.75
 # load the furst image that contains an object that is KNOWN TO BE 2 feet
 # from our camera, then find the paper marker in the image, and initialize
 # the focal length
-image = cv2.imread("images/new.jpeg")
+image = cv2.imread("images/new1.jpeg")
 marker = find_marker(image)
 focalLength = (marker[1][0] * KNOWN_DISTANCE) / KNOWN_WIDTH
 
