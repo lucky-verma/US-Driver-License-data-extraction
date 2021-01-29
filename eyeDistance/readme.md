@@ -15,6 +15,17 @@
 3. what we are doing is **not true** camera calibration. True camera calibration involves the intrinsic parameters of the camera. 
    (http://www.vision.caltech.edu/bouguetj/calib_doc/htmls/parameters.html).
 
+## Approach 2: UPDATED 
+1. get the width approximation based on survey data and user details from backend DB.
+2. get the Focal length approximated based on average human hand distance OR can use the approx. **FOV** to calculate the focal length. (https://learnopencv.com/approximate-focal-length-for-webcams-and-cell-phone-cameras/).
+3. Make an algo to adjust the Focal-length/pixels w.r.t. the width provided from user details.
+4. Fix the width after initiating the script.
+
+# Best Frame calculation.
+1. Use `Numpy` to get the n-D Array of all frames and then find the most similar arrays and pick any 3 centre weighted array as your best frame.
+2. If the `std` is not more than some upper limit than continue to distance estimation else, redo the whole to get less `std`. 
+
+
 References: 
 1. https://www.pyimagesearch.com/2015/01/19/find-distance-camera-objectmarker-using-python-opencv/
 2. https://github.com/pablovela5620/Hand-Detection-and-Distance-Estimation
