@@ -30,6 +30,9 @@ References:
 1. https://www.pyimagesearch.com/2015/01/19/find-distance-camera-objectmarker-using-python-opencv/
 2. https://github.com/pablovela5620/Hand-Detection-and-Distance-Estimation
 3. https://thesai.org/Downloads/Volume9No9/Paper_77-Deep_Learning_based_Object_Distance_Measurement.pdf
+4. https://www.pyimagesearch.com/2017/04/03/facial-landmarks-dlib-opencv-python/
+5. https://github.com/NVlabs/ffhq-dataset # Dataset (FACE)
+6. https://www.researchgate.net/figure/Average-face-index-average-width-and-average-height-along-with-the-face-classifications_tbl4_289499995
 
 
 # [Test]
