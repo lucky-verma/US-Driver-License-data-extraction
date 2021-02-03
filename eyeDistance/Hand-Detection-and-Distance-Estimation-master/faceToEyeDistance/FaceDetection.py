@@ -36,29 +36,24 @@ for (i, rect) in enumerate(rects):
     shape = predictor(gray, rect)
     shape = face_utils.shape_to_np(shape)
     (x, y, w, h) = face_utils.rect_to_bb(rect)
-    # Determined using a piece of paper of known length, code can be found in distance to camera
-    focalLength = 350
-    # The average width of a human hand (inches) http://www.theaveragebody.com/average_hand_size.php
-    # added an inch since thumb is not included
+    # Determined using a face of known width, code can be found in distance to camera
+    focalLength = 472  # my camera Focal length
+    # The average width of a human face (inches)
     avg_width = 6.8
-    # To more easily differetiate distances and detected bboxes
+    # To more easily differentiate distances and detected bboxes
     color = None
     color0 = (255, 0, 0)
     color1 = (0, 50, 255)
 
-    dist = distance_to_camera(avg_width, focalLength, int(int(w+x) - int(x)))
+    dist = distance_to_camera(avg_width, focalLength, int(int(w + x) - int(x)))
     distance = str(round(dist, 2))
+
     print(w, avg_width, focalLength, int(x), int(y), distance)
 
     cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 255), 2)
-    # show the face number
-    # cv2.putText(image, "Face #{}".format(i + 1), (x - 10, y - 10),
-    #             cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
-    cv2.putText(image, "distance:" + distance+ ' inches', (x - 10, y - 10),
-                cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
+    cv2.putText(image, "distance:" + distance + ' inches', (x - 10, y - 10),
+                cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
 
-    # cv2.putText(image, 'distance: ' + str("{0:.2f}".format(dist) + ' inches'),
-    #             cv2.FONT_HERSHEY_SIMPLEX, 0.75, color, 2)
     for (x, y) in shape:
         cv2.circle(image, (x, y), 1, (255, 255, 0), -1)
 
