@@ -1,0 +1,34 @@
+absl-py==0.11.0
+astor==0.8.1
+bleach==1.5.0
+certifi==2020.12.5
+cmake==3.18.4.post1
+cycler==0.10.0
+dlib==19.21.1
+gast==0.4.0
+grpcio==1.35.0
+html5lib==0.9999999
+importlib-metadata==3.4.0
+imutils @ file:///D:/bld/imutils_1610720164000/work
+kiwisolver @ file:///D:/bld/kiwisolver_1610099971815/work
+Markdown==3.3.3
+matplotlib==3.1.0
+mkl-fft==1.0.10
+mkl-random==1.0.2
+numpy==1.19.5
+olefile @ file:///home/conda/feedstock_root/build_artifacts/olefile_1602866521163/work
+Pillow @ file:///D:/bld/pillow_1610407611014/work
+protobuf==3.14.0
+pyparsing==2.4.7
+python-dateutil==2.8.1
+scipy==1.1.0
+six @ file:///home/conda/feedstock_root/build_artifacts/six_1590081179328/work
+TBB==0.1
+tensorboard==1.8.0
+tensorflow==1.8.0
+termcolor==1.1.0
+tornado @ file:///D:/bld/tornado_1610094881553/work
+typing-extensions==3.7.4.3
+Werkzeug==1.0.1
+wincertstore==0.2
+zipp==3.4.0
