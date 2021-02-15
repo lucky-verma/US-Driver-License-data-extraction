@@ -1,5 +1,0 @@
-train: ../../license_data/train/images
-val: ../../license_data/valid/images
-
-nc: 5
-names: ['address', 'date_of_birth', 'license_number', 'name', 'sex']
