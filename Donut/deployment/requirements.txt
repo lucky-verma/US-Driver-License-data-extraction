@@ -1,0 +1,6 @@
+fastapi==0.92.0
+gradio==3.19.1
+Pillow==9.4.0
+torch==1.13.0
+transformers==4.26.0.dev0
+uvicorn==0.20.0
