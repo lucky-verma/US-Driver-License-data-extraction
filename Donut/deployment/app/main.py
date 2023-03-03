@@ -27,6 +27,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.get("/")
+async def root():
+    return {"message": "OCRfree Drivers License Extraction API. \n Visit /docs for more info."}
 
 @app.post("/predict")
 async def predict(file: UploadFile = File(...)):
