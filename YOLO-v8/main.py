@@ -51,7 +51,7 @@ async def predict(file: UploadFile = File(...)):
 
     final_results = {}
     for box in boxes:
-        names = {0: 'address', 1: 'date_of_birth', 2: 'license_number', 3: 'name', 4: 'sex'}
+        names = {0: 'address', 1: 'dob', 2: 'name', 3: 'state'}
 
         print(type(image))
         # crop each box
