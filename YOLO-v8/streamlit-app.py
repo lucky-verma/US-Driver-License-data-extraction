@@ -35,7 +35,7 @@ uploaded_file = st.file_uploader("Choose an image...", type=["png", "jpg", "jpeg
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
-    coll1, coll2, col3 = st.columns(3)
+    coll1, coll2, col3 = st.columns([2,1,2])
     with coll1:
         st.image(image, caption='Uploaded Image.', use_column_width=True)
         st.write("")
@@ -95,7 +95,7 @@ if uploaded_file is not None:
 
                 # State processing
                 elif int(box.cls[0]) == 3:
-                    temp = temp[-1] if len(temp) > 1 else temp
+                    temp = [word for word in temp if len(word) > 3]
                     easy_results[names[int(box.cls[0])]] = [temp]
 
                 else:
